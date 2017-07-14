@@ -11,7 +11,7 @@ do
         git commit -m auto-commit
         git push
     else
-        echo all cool
+        echo nothing to do 
     fi
 
     sleep 30s
