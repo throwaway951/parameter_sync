@@ -11,7 +11,7 @@ do
     fi
 
     if [[ $(git fetch) ]]; then
-        git merge
+        git pull 
     fi
 
     sleep 30s
