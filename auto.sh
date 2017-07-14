@@ -2,16 +2,16 @@
 
 while true
 do
-    if [[ $(git status | diff utd -) ]]; then
+
+    if [[ $(git fetch) ]]; then
+        git merge -m auto-pull
+
+    elif [[ $(git status | diff utd -) ]]; then
         git add .
         git commit -m auto-commit
         git push
     else
         echo all cool
-    fi
-
-    if [[ $(git fetch) ]]; then
-        git pull 
     fi
 
     sleep 30s
