@@ -1,72 +1,24 @@
-GitHub Markup
+Hi SocialCops
 =============
 
-This library is the first step of a journey that every markup file in a repository goes on before it is rendered on GitHub.com:
+I'm Praneeth Mendu([github](https://github.com/praneethmendu/)|[CV](praneethmendu.github.io)). 
+    I am trying to sync the folder by making it a cloned repo and running a simple bash script that looks for both local changes and changes in the repo( edited by some other instance) and updates files accordingly. Any number of users and files can be added.
 
-1. This library converts the raw markup to HTML. See the list of [supported markup formats](#markups) below.
-1. The HTML is sanitized, aggressively removing things that could harm you and your kin—such as `script` tags, inline-styles, and `class` or `id` attributes. See the [sanitization filter](https://github.com/jch/html-pipeline/blob/master/lib/html/pipeline/sanitization_filter.rb) for the full whitelist.
-1. Syntax highlighting is performed on code blocks. See [github/linguist](https://github.com/github/linguist#syntax-highlighting) for more information about syntax highlighting.
-1. The HTML is passed through other filters in the [html-pipeline](https://github.com/jch/html-pipeline) that add special sauce, such as [emoji](https://github.com/jch/html-pipeline/blob/master/lib/html/pipeline/emoji_filter.rb), [task lists](https://github.com/github/task_list/blob/master/lib/task_list/filter.rb), [named anchors](https://github.com/jch/html-pipeline/blob/master/lib/html/pipeline/toc_filter.rb), [CDN caching for images](https://github.com/jch/html-pipeline/blob/master/lib/html/pipeline/camo_filter.rb), and  [autolinking](https://github.com/jch/html-pipeline/blob/master/lib/html/pipeline/autolink_filter.rb).
-1. The resulting HTML is rendered on GitHub.com.
+Communicating via Http requires the password to be entered manually everytime, I tried scripting with this approach but it became too hacky, so I had to use ssh. This made things much more elegant but it makes your job of evaluating the code more dreadful.
 
-Please note that **only the first step** is covered by this gem — the rest happens on GitHub.com.  In particular, `markup` itself does no sanitization of the resulting HTML, as it expects that to be covered by whatever pipeline is consuming the HTML.
+Instructions:
 
-Please see our [contributing guidelines](CONTRIBUTING.md) before reporting an issue.
+1) add your ssh public key in the github account settings:
+acct_name: throwaway951
+password: rugrats1
 
-Markups
--------
+2) clone via ssh, chmod +x auto.sh and run it.
 
-The following markups are supported.  The dependencies listed are required if
-you wish to run the library. You can also run `script/bootstrap` to fetch them all.
+Helpful links:
+[Generating a new SSH key and adding it to the ssh-agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+[Adding a new SSH key to your GitHub account](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
+[Working with SSH key passphrases](https://help.github.com/articles/working-with-ssh-key-passphrases/)
+Host Key Verification Failed can be solved by:
+ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
-* [.markdown, .mdown, .mkdn, .md](http://daringfireball.net/projects/markdown/) -- `gem install commonmarker` (https://github.com/gjtorikian/commonmarker)
-* [.textile](https://www.promptworks.com/textile) -- `gem install RedCloth`
-* [.rdoc](https://rdoc.github.io/rdoc/) -- `gem install rdoc -v 3.6.1`
-* [.org](http://orgmode.org/) -- `gem install org-ruby`
-* [.creole](http://wikicreole.org/) -- `gem install creole`
-* [.mediawiki, .wiki](http://www.mediawiki.org/wiki/Help:Formatting) -- `gem install wikicloth`
-* [.rst](http://docutils.sourceforge.net/rst.html) -- `python3 -m pip install sphinx`
-* [.asciidoc, .adoc, .asc](http://asciidoc.org/) -- `gem install asciidoctor` (http://asciidoctor.org)
-* [.pod](http://search.cpan.org/dist/perl/pod/perlpod.pod) -- `Pod::Simple::XHTML`
-  comes with Perl >= 5.10. Lower versions should install Pod::Simple from CPAN.
-
-
-Installation
------------
-
-```
-gem install github-markup
-```
-
-Usage
------
-
-Basic form:
-
-```ruby
-require 'github/markup'
-
-GitHub::Markup.render('README.markdown', "* One\n* Two")
-```
-
-More realistic form:
-
-```ruby
-require 'github/markup'
-
-GitHub::Markup.render(file, File.read(file))
-```
-
-And a convenience form:
-
-```ruby
-require 'github/markup'
-
-GitHub::Markup.render_s(GitHub::Markups::MARKUP_MARKDOWN, "* One\n* Two")
-```
-
-
-Contributing
-------------
-
-See [Contributing](CONTRIBUTING.md).
+                                   
