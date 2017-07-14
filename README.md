@@ -1,10 +1,12 @@
 Hi SocialCops
 =============
 
-I'm Praneeth Mendu([github](https://github.com/praneethmendu/)|[CV](praneethmendu.github.io)). 
-    I am trying to sync the folder by making it a cloned repo and running a simple bash script that looks for both local changes and changes in the repo( edited by some other instance) and updates files accordingly. Any number of users and files can be added.
+I'm Praneeth Mendu ( [github](https://github.com/praneethmendu/) | [CV](praneethmendu.github.io) ). 
 
-Communicating via Http requires the password to be entered manually everytime, I tried scripting with this approach but it became too hacky, so I had to use ssh. This made things much more elegant but it makes your job of evaluating the code more dreadful.
+
+I am trying to sync the folder by making it a cloned repo and running a simple bash script that looks for both local changes and changes in the repo (changed by some other instance) and updates files accordingly. Any number of users and files can be added.
+
+Communicating via Http requires the password to be entered manually everytime, so I had to use ssh. This made things much more elegant but it makes your job of evaluating the code more dreadful.
 
 Instructions:
 
