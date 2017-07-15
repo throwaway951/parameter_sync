@@ -3,8 +3,8 @@
 while true
 do
 
-    if [[ $(git fetch) ]]; then
-        git merge -m auto-pull
+    if [[! $(git fetch -v --dry-run 2>&1 >/dev/null | grep 'up to date') ]]; then
+        git pull
 
     elif [[ $(git status | diff utd -) ]]; then
         git add .
