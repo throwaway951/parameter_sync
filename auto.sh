@@ -14,5 +14,5 @@ do
         echo nothing to do 
     fi
 
-    sleep 3s
+    sleep 30s
 done
