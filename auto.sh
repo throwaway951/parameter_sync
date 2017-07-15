@@ -3,7 +3,7 @@
 while true
 do
 
-    if [[! $(git fetch -v --dry-run 2>&1 >/dev/null | grep 'up to date') ]]; then
+    if ! [[ $(git fetch -v --dry-run 2>&1 >/dev/null | grep 'up to date') ]]; then
         git pull
 
     elif [[ $(git status | diff utd -) ]]; then
@@ -14,5 +14,5 @@ do
         echo nothing to do 
     fi
 
-    sleep 30s
+    sleep 3s
 done
