@@ -21,7 +21,7 @@ Helpful links:
 [Generating a new SSH key and adding it to the ssh-agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)<br />
 [Adding a new SSH key to your GitHub account](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)<br />
 [Working with SSH key passphrases](https://help.github.com/articles/working-with-ssh-key-passphrases/)<br />
-Host Key Verification Failed can be solved by:
+"Host Key Verification Failed" can be solved by:
 ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
                                    
